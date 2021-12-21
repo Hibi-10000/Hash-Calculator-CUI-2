@@ -1,5 +1,5 @@
 @echo OFF
-echo HashŒvŽZCUI2 [Version.2.7]
+echo Hashè¨ˆç®—CUI2 [Version.2.7]
 echo Copyright (c) 2021 Hibi_10000  All Rights Reserved.
 
 if exist .\data\7z.exe (goto ps) else (start .\data\7z-set.bat)
@@ -23,22 +23,22 @@ set Hash=
 set Answer=
 echo.
 
-::HashƒAƒ‹ƒSƒŠƒYƒ€‚Ì‘I‘ðŽˆ
+::Hashã‚¢ãƒ«ã‚´ãƒªã‚ºãƒ ã®é¸æŠžè‚¢
 echo Hash=MD2^|MD4^|MD5^|SHA1^|SHA256^|SHA384^|SHA512^|RIPEMD160^|MACTripleDES^|CRC32^|CRC64^|BLAKE2sp
 echo.
 
 
-::‘I‘ð
+::é¸æŠž
 set /p Hash="Hash="
 echo.
 
 
-::¬•¶ŽšË‘å•¶Žš
+::å°æ–‡å­—â‡’å¤§æ–‡å­—
 for %%i in (A B C D E F G H I J K L M N O P Q R S T U V W X Y Z) do call set Hash=%%Hash:%%i=%%i%%
 
 
-::Šm”F
-set /P Answer="Hasho—Í‚·‚é‚Ì‚Í%Hash%‚Å‚æ‚ë‚µ‚¢‚Å‚·‚©?(y/n)"
+::ç¢ºèª
+set /P Answer="Hashå‡ºåŠ›ã™ã‚‹ã®ã¯%Hash%ã§ã‚ˆã‚ã—ã„ã§ã™ã‹?(y/n)"
 if %Answer%==y (goto Branch)
 
 goto query
@@ -58,8 +58,8 @@ if %Hash%==CRC64 (goto 7z)
 if %Hash%==BLAKE2sp (goto 7z)
 
 ::Error
-echo ‚±‚ê‚Í‘Î‰ž‚µ‚Ä‚¢‚éHashƒAƒ‹ƒSƒŠƒYƒ€‚Å‚Í‚ ‚è‚Ü‚¹‚ñB
-echo ‚±‚ê‚Í‘Î‰ž‚µ‚Ä‚¢‚éHashƒAƒ‹ƒSƒŠƒYƒ€‚Å‚Í‚ ‚è‚Ü‚¹‚ñB > .\Log\Log_%DATE:/=%_%i%.txt
+echo ã“ã‚Œã¯å¯¾å¿œã—ã¦ã„ã‚‹Hashã‚¢ãƒ«ã‚´ãƒªã‚ºãƒ ã§ã¯ã‚ã‚Šã¾ã›ã‚“ã€‚
+echo ã“ã‚Œã¯å¯¾å¿œã—ã¦ã„ã‚‹Hashã‚¢ãƒ«ã‚´ãƒªã‚ºãƒ ã§ã¯ã‚ã‚Šã¾ã›ã‚“ã€‚ > .\Log\Log_%DATE:/=%_%i%.txt
 goto Repeatedly
 
 
