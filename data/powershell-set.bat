@@ -1,6 +1,6 @@
 @echo off
 
-echo Hash�v�ZCUI2 PowerShell Copy Tool
+echo Hash計算CUI2 PowerShell Copy Tool
 echo Copyright (c) 2021 Hibi_10000  All Rights Reserved.
 echo.
 
@@ -14,7 +14,7 @@ copy "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" .\data\PowerShe
 exit
 
 :v123
-echo PowerShell�̃o�[�W�������Â��ł��B
+echo PowerShellのバージョンが古いです。
 
 copy .\data\data\PowerShell-5.1.exe .\data\PowerShell.exe
 PAUSE
