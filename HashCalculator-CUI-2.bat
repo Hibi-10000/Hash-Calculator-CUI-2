@@ -1,21 +1,20 @@
 @echo OFF
-echo Hash計算CUI2 [Version.2.7]
-echo Copyright (c) 2021 Hibi_10000  All Rights Reserved.
+echo.
+echo Hash Calculator CUI v2 [Version.2.8]
+echo.
+echo Copyright (c) 2021-2022 Hibi_10000 GNU General Public License Version 3
+echo.
 
-if exist .\data\7z.exe (goto ps) else (start .\data\7z-set.bat)
-:ps
-if exist .\data\PowerShell.exe (goto 1) else (start .\data\PowerShell-set.bat)
 
-:1
+:Repeatedly
+
 if exist Log (goto Repeatedly)
 md Log
 
-:Repeatedly
 set i=0
 :loop
 set /a i=i+1
 if exist .\Log\Log_%DATE:/=%_%i%.txt goto loop
-
 
 :query
 ::reset
@@ -23,23 +22,24 @@ set Hash=
 set Answer=
 echo.
 
-::Hashアルゴリズムの選択肢
+::Hash algorithm choices
 echo Hash=MD2^|MD4^|MD5^|SHA1^|SHA256^|SHA384^|SHA512^|RIPEMD160^|MACTripleDES^|CRC32^|CRC64^|BLAKE2sp
 echo.
 
 
-::選択
+::Selection
 set /p Hash="Hash="
 echo.
 
 
-::小文字⇒大文字
+::Lowercase ⇒ uppercase
 for %%i in (A B C D E F G H I J K L M N O P Q R S T U V W X Y Z) do call set Hash=%%Hash:%%i=%%i%%
 
 
-::確認
-set /P Answer="Hash出力するのは%Hash%でよろしいですか?(y/n)"
+::confirmation
+set /P Answer="Is it okay to output Hash with %Hash%?(Y/N)"
 if %Answer%==y (goto Branch)
+if %Answer%==Y (goto Branch)
 
 goto query
 
@@ -58,8 +58,8 @@ if %Hash%==CRC64 (goto 7z)
 if %Hash%==BLAKE2sp (goto 7z)
 
 ::Error
-echo これは対応しているHashアルゴリズムではありません。
-echo これは対応しているHashアルゴリズムではありません。 > .\Log\Log_%DATE:/=%_%i%.txt
+echo This is not a supported Hash algorithm.
+echo This is not a supported Hash algorithm. > .\Log\Log_%DATE:/=%_%i%.txt
 goto Repeatedly
 
 
@@ -67,24 +67,23 @@ goto Repeatedly
 echo.
 certutil -hashfile %1 %Hash%
 certutil -hashfile %1 %Hash% > .\Log\Log_%DATE:/=%_%i%.txt
-goto exit
+PAUSE
+exit
 
 
 :ps
+if not exist .\data\powershell.exe (start /i /wait .\data\powershell-set.bat)
 echo.
-".\data\PowerShell.exe" PowerShell Get-FileHash -Algorithm %Hash% %1
-".\data\PowerShell.exe" PowerShell Get-FileHash -Algorithm %Hash% %1 > .\Log\Log_%DATE:/=%_%i%.txt
-goto exit
+".\data\powershell.exe" PowerShell Get-FileHash -Algorithm %Hash% %1
+".\data\powershell.exe" PowerShell Get-FileHash -Algorithm %Hash% %1 > .\Log\Log_%DATE:/=%_%i%.txt
+PAUSE
+exit
 
 
 :7z
+if not exist .\data\7z.exe (start /i /wait .\data\7z-set.bat)
 echo.
 ".\data\7z.exe" h -scrc%Hash% %1
 ".\data\7z.exe" h -scrc%Hash% %1 > .\Log\Log_%DATE:/=%_%i%.txt
-goto exit
-
-
-:exit
-echo.
-echo stoping...
 PAUSE
+exit

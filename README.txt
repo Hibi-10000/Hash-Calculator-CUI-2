@@ -1,35 +1,32 @@
-Hash計算CUI2 [ver2.7]
-対応OS:Windows7,8(.1),10(恐らくWindowsServerでも動く)
+Hash Calculator CUI v2 [ver2.8]
+対応OS:Windows7-10(恐らくWindowsServerでも動く)
 
 ファイルをドロップすればハッシュ値がcmdに表示されます。
-※フォルダのハッシュ値は取得できません。また、管理者権限は使用しません。
+※管理者権限は使用しません。
 
 現在ver対応ハッシュアルゴリズム
 
  CMD
-
  ・SHA1,256,384,512
  ・MD2,4,5
 
- PowerShell-5.1
-
+ PowerShell
  ・RIPEMD160
  ・MACTripleDES
 
- 7Zip-19.00
-
+ 7zip
  ・CRC32,64
  ・BLAKE2sp
 
 
 動作確認
-Windows10 Pro 21H2 19044.1526 x64 PowerShell-5.1 7-Zip-19.00
+Windows10 Pro 21H2 x86_64
 
 
 不具合等ありましても作者は更新の責任を負いません。
 PCに不具合等発生しても作者は責任を負いません。
 
-Copyright © 2021-2022 Hibi_10000
+Copyright © 2021-2022 Hibi_10000 GNU General Public License Version 3
 
 
 更新履歴
@@ -46,3 +43,6 @@ Copyright © 2021-2022 Hibi_10000
 	   ver2.5  自動的にPowerShellと7zipのファイルをセットするように。
 	   ver2.6  最高圧縮で配布。
 2021/10/04 ver2.7  解凍のバグを修正。 GUI版の作成による名称変更
+2022/06/23 ver2.8  7zipのライセンス(GNU LGPL)に対する対応。
+		   一部仕様変更と修正。
+
