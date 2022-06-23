@@ -5,11 +5,10 @@ echo.
 echo Copyright (c) 2021-2022 Hibi_10000 GNU General Public License Version 3
 echo.
 
-
-:Repeatedly
-
 if exist Log (goto Repeatedly)
 md Log
+
+:Repeatedly
 
 set i=0
 :loop
