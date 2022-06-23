@@ -1,4 +1,4 @@
-Hash Calculator CUI v2 [ver2.8]
+Hash Calculator CUI v2 [ver2.9]
 対応OS:Windows7-10(恐らくWindowsServerでも動く)
 
 ファイルをドロップすればハッシュ値がcmdに表示されます。
@@ -45,4 +45,5 @@ Copyright © 2021-2022 Hibi_10000 GNU General Public License Version 3
 2021/10/04 ver2.7  解凍のバグを修正。 GUI版の作成による名称変更
 2022/06/23 ver2.8  7zipのライセンス(GNU LGPL)に対する対応。
 		   一部仕様変更と修正。
+	   ver2.9  MACTripleDESのHash値を取得できない問題を修正。
 
